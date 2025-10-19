@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDN React Components</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .component { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Component 1: Welcome Component
+        function Welcome({ name }) {
+            return (
+                <div className="component">
+                    <h2>Welcome Component</h2>
+                    <p>Hello, {name}! Welcome to React with CDN.</p>
+                </div>
+            );
+        }
+
+        // Component 2: Counter Component
+        function Counter() {
+            const [count, setCount] = React.useState(0);
+
+            return (
+                <div className="component">
+                    <h2>Counter Component</h2>
+                    <p>Count: {count}</p>
+                    <button onClick={() => setCount(count + 1)}>Increment</button>
+                    <button onClick={() => setCount(count - 1)}>Decrement</button>
+                </div>
+            );
+        }
+
+        // Main App Component
+        function App() {
+            return (
+                <div>
+                    <h1>CDN React Components Demo</h1>
+                    <Welcome name="Developer" />
+                    <Counter />
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
